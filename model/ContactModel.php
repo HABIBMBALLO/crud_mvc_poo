@@ -16,20 +16,27 @@ class ContactModel{
         // executer les requette
         return $queryPrepare->execute(array($prenom, $nom, $tel));
 
-    }   
-
-    public function modifier($telephone, $prenom, $nom, $id){
-
+    }  
+    
+    public function modifier($tel, $prenom, $nom, $id){
+        $query = $this->db->ds->prepare("UPDATE contact SET tel = ?, prenom = ?, nom = ? WHERE id = ?");
+        return $query->execute(array($tel,$prenom,$nom,$id));
     }
 
     public function supprimer($id){
-
+        
     }
 
     public function lister(){
         $query = $this->db->ds->prepare(" SELECT * FROM contact ORDER BY nom");
         $query->execute();
         return $query->fetchAll();
+    }
+
+    public function findContactById(){
+        $query = $this->db->ds->prepare(" SELECT * FROM contact WHERE id =?");
+        $query->execute(array('$id'));
+        return $query->fetch();
     }
 }
 ?>

@@ -8,22 +8,22 @@
             </span>
         </div>
         <div class="card-body">
-            <form action="" method="POST">
-                <input type="text" name="id">
+            <form action="/CRUD_MVC_POO/index.php?action=modifier" method="POST">
+                <input type="hidden" name="id" value="<?= $contact['id']?>">
                 <div class="form-group">
                     <label for="">Prenom</label>
-                    <input type="text" name="prenom" class="form-control">
+                    <input type="text" name="prenom" value="<?= $contact['prenom']?>" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">Nom</label>
-                    <input type="text" name="nom" class="form-control">
+                    <input type="text" name="nom" value="<?= $contact['nom']?>" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">Telephone</label>
-                    <input type="text" name="tel" class="form-control">
+                    <input type="text" name="tel" value="<?= $contact['tel']?>" class="form-control">
                 </div><br>
                 <div class="row col-md-5">
-                    <input type="submit" class="btn btn-primary" value="Valider" name="add">
+                    <input type="submit" class="btn btn-primary" value="Valider" name="modif">
                 </div>
             </form>
         </div>
